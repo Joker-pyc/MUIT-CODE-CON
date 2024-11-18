@@ -18,7 +18,6 @@ Code Con 2024 is a cutting-edge tech event website that brings together develope
 - **500+ Participants Expected**
 - **48 Hours of Non-Stop Coding**
 - **20+ Exciting Events**
-- **Total Prize Pool: $11,000+**
 
 ### ✨ Website Features
 
@@ -158,7 +157,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any queries or support:
 - 📧 Email: muitcodecrew@gmail.com
-- 🌐 Website: [codecon2024.com]([https://codecon2024.com](https://joker-pyc.github.io/CODE-CON/))
+- 🌐 Website: [codecon](https://joker-pyc.github.io/CODE-CON/)
 
 
 ## 🙏 Acknowledgments
