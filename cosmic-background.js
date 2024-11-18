@@ -8,6 +8,8 @@ import { FontLoader } from 'FontLoader';
 import { TextGeometry } from 'TextGeometry';
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x00184); // Dark deep blue background
+
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('webgl-background'), antialias: true, alpha: true });
 
@@ -24,17 +26,17 @@ controls.maxPolarAngle = Math.PI;
 
 camera.position.z = 300;
 
-// Create parallax star layers
 const starLayers = createParallaxStarLayers();
 starLayers.forEach(layer => scene.add(layer));
 
-// Create realistic nebula
 const nebula = createRealisticNebula();
 scene.add(nebula);
 
-// Create floating 3D code texts
 const codeTexts = createFloatingCodeTexts();
 scene.add(codeTexts);
+
+const galaxySpiral = createGalaxySpiral();
+scene.add(galaxySpiral);
 
 const composer = new EffectComposer(renderer);
 const renderPass = new RenderPass(scene, camera);
@@ -51,7 +53,6 @@ bloomPass.strength = 1.5;
 bloomPass.radius = 0;
 composer.addPass(bloomPass);
 
-// Add a custom shader pass for additional effects
 const customShaderPass = new ShaderPass({
     uniforms: {
         tDiffuse: { value: null },
@@ -85,10 +86,8 @@ let mouseY = 0;
 
 function animate() {
     requestAnimationFrame(animate);
-
     time += 0.001;
 
-    // Animate parallax star layers
     starLayers.forEach((layer, index) => {
         const parallaxFactor = 0.1 * (index + 1);
         layer.position.x = mouseX * parallaxFactor;
@@ -96,18 +95,17 @@ function animate() {
         layer.rotation.y += 0.0001 * (index + 1);
     });
 
-    // Animate nebula
     nebula.material.uniforms.time.value = time;
     nebula.rotation.y += 0.0001;
 
-    // Animate floating code texts
     codeTexts.children.forEach((text, index) => {
         text.position.y = Math.sin(time * 2 + index) * 10;
         text.rotation.x = Math.sin(time + index) * 0.2;
         text.rotation.y = Math.cos(time + index) * 0.2;
     });
 
-    // Scroll and mouse movement animation
+    galaxySpiral.rotation.y += 0.0001;
+
     const targetY = scrollY * 0.5;
     camera.position.y += (targetY - camera.position.y) * 0.05;
     camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.05;
@@ -138,15 +136,12 @@ window.addEventListener('mousemove', onMouseMove);
 function createParallaxStarLayers() {
     const layers = [];
     const layerCount = 3;
-
     for (let i = 0; i < layerCount; i++) {
         const geometry = new THREE.BufferGeometry();
         const vertices = [];
         const sizes = [];
-
         const layerDepth = 500 + i * 500;
         const starCount = 2000 - i * 500;
-
         for (let j = 0; j < starCount; j++) {
             vertices.push(
                 (Math.random() - 0.5) * 2000,
@@ -155,10 +150,8 @@ function createParallaxStarLayers() {
             );
             sizes.push(Math.random() * 2 + 0.5);
         }
-
         geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
         geometry.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1));
-
         const material = new THREE.ShaderMaterial({
             uniforms: {
                 color: { value: new THREE.Color(0xffffff) }
@@ -184,10 +177,8 @@ function createParallaxStarLayers() {
             transparent: true,
             blending: THREE.AdditiveBlending
         });
-
         layers.push(new THREE.Points(geometry, material));
     }
-
     return layers;
 }
 
@@ -248,7 +239,6 @@ function createRealisticNebula() {
         transparent: true,
         side: THREE.DoubleSide
     });
-
     return new THREE.Mesh(geometry, material);
 }
 
@@ -256,7 +246,6 @@ function createFloatingCodeTexts() {
     const textGroup = new THREE.Group();
     const loader = new FontLoader();
     const codeSnippets = ['<>', '{}', '[]', '#', '//', '/**/', 'if', 'for', 'while', 'function', 'class', 'const', 'let', 'var', '===', '=>', 'return', 'import', 'export', 'async', 'await'];
-
     const neonColors = [0xff00ff, 0x00ffff, 0xff3300, 0x33ff00, 0xffff00, 0x0033ff];
 
     loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
@@ -272,7 +261,6 @@ function createFloatingCodeTexts() {
                 bevelOffset: 0,
                 bevelSegments: 5
             });
-
             const color = neonColors[Math.floor(Math.random() * neonColors.length)];
             const textMaterial = new THREE.MeshPhongMaterial({
                 color: color,
@@ -280,26 +268,68 @@ function createFloatingCodeTexts() {
                 emissiveIntensity: 0.5 + Math.random() * 0.5,
                 shininess: 100
             });
-
             const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-
             textMesh.position.set(
                 (Math.random() - 0.5) * 500,
                 (Math.random() - 0.5) * 500,
                 (Math.random() - 0.5) * 500
             );
-
             textMesh.rotation.set(
                 Math.random() * Math.PI * 2,
                 Math.random() * Math.PI * 2,
                 Math.random() * Math.PI * 2
             );
-
             textGroup.add(textMesh);
         });
     });
-
     return textGroup;
+}
+
+function createGalaxySpiral() {
+    const particleCount = 50000;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    const spiralArms = 5;
+    const armWidth = 0.5;
+    const innerRadius = 50;
+    const outerRadius = 300;
+
+    for (let i = 0; i < particleCount; i++) {
+        const t = Math.random();
+        const angle = t * Math.PI * 2 * spiralArms + Math.random() * armWidth;
+        const radius = innerRadius + t * (outerRadius - innerRadius);
+
+        const x = Math.cos(angle) * radius;
+        const y = (Math.random() - 0.5) * 20;
+        const z = Math.sin(angle) * radius;
+
+        positions[i * 3] = x;
+        positions[i * 3 + 1] = y;
+        positions[i * 3 + 2] = z;
+
+        const r = 0.5 + 0.5 * Math.random();
+        const g = 0.2 + 0.3 * Math.random();
+        const b = 0.7 + 0.3 * Math.random();
+
+        colors[i * 3] = r;
+        colors[i * 3 + 1] = g;
+        colors[i * 3 + 2] = b;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const material = new THREE.PointsMaterial({
+        size: 0.5,
+        vertexColors: true,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        opacity: 0.8
+    });
+
+    return new THREE.Points(geometry, material);
 }
 
 animate();
