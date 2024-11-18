@@ -1,618 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MUIT Code-Con: Cosmic Code Odyssey 2.0</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Con 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="geometric-background"></div>
+    <div class="parallax-wrapper">
+        <div class="parallax-content">
+            <div class="parallax-layer"></div>
+            
+            <header>
+                <nav>
+                    <div class="logo">CODE CON</div>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#about">About</a>
+                        <a href="#competitions">Competitions</a>
+                        <a href="#schedule">Schedule</a>
+                        <a href="#sponsors">Sponsors</a>
+                        <a href="#community-partners">Community Partners</a>
+                        <button class="register-btn glow-effect">Register Now</button>
+                    </div>
+                </nav>
+            </header>
 
-    
-    <style>
-      :root {
-        --primary-color: #00ffff;
-        --secondary-color: #ff00de;
-        --accent-color: #0f0;
-        --background-color: #000033;
-        --neon-glow: 0 0 10px var(--primary-color),
-          0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Orbitron", sans-serif;
-        background-color: var(--background-color);
-        color: #fff;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-      .cosmic-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-          ellipse at center,
-          rgba(0, 0, 51, 0.3) 0%,
-          rgba(0, 0, 51, 0.9) 100%
-        );
-        z-index: -1;
-        pointer-events: none;
-      }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        position: relative;
-      }
-      header {
-        text-align: center;
-        padding: 50px 0;
-        position: relative;
-      }
-      h1 {
-        font-family: "Press Start 2P", cursive;
-        font-size: 4em;
-        margin-bottom: 10px;
-        color: var(--primary-color);
-        text-shadow: var(--neon-glow);
-        animation: glitch 2s infinite alternate-reverse,
-          float 6s ease-in-out infinite;
-      }
-      @keyframes glitch {
-        0% {
-          text-shadow: -2px 0 var(--secondary-color),
-            2px 2px var(--accent-color);
-          transform: translate(2px, -2px);
-        }
-        25% {
-          text-shadow: 2px -2px var(--secondary-color),
-            -2px 2px var(--accent-color);
-          transform: translate(-2px, 2px);
-        }
-        50% {
-          text-shadow: 2px 0 var(--secondary-color),
-            -2px -2px var(--accent-color);
-          transform: translate(2px, 2px);
-        }
-        75% {
-          text-shadow: -2px 2px var(--secondary-color),
-            2px -2px var(--accent-color);
-          transform: translate(-2px, -2px);
-        }
-        100% {
-          text-shadow: 2px 2px var(--secondary-color),
-            -2px 0 var(--accent-color);
-          transform: translate(0, 0);
-        }
-      }
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-      .tagline {
-        font-size: 1.8em;
-        color: var(--secondary-color);
-        text-shadow: 0 0 10px var(--secondary-color);
-        margin-bottom: 30px;
-        animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-        0%, 100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-      }
-      .event-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-bottom: 60px;
-      }
-      .event-card {
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid var(--primary-color);
-        border-radius: 15px;
-        padding: 25px;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-        transition: all 0.5s ease;
-        backdrop-filter: blur(10px);
-        transform: perspective(1000px) rotateX(0deg);
-        position: relative;
-        overflow: hidden;
-      }
-      .event-card::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.1) 0%,
-          transparent 70%
-        );
-        transform: rotate(45deg);
-        transition: all 0.5s ease;
-      }
-      .event-card:hover {
-        transform: perspective(1000px) rotateX(10deg) scale(1.05);
-        box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
-      }
-      .event-card:hover::before {
-        top: -75%;
-        left: -75%;
-      }
-      .event-card h2 {
-        font-family: "Press Start 2P", cursive;
-        color: var(--secondary-color);
-        text-shadow: 0 0 10px var(--secondary-color);
-        margin-bottom: 15px;
-        font-size: 1.2em;
-      }
-      .event-card p {
-        color: #fff;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      }
-      .registration-form {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 40px;
-        border-radius: 20px;
-        border: 3px solid var(--primary-color);
-        backdrop-filter: blur(15px);
-        box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-        position: relative;
-        overflow: hidden;
-        color: #fff;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      }
-      .registration-form::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    transform: rotate(45deg);
-    animation: formGlow 10s linear infinite;
-    z-index: -1;
-}
-      @keyframes formGlow {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .form-step {
-        display: none;
-      }
-      .form-step.active {
-        display: block;
-      }
-      .progress-bar {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-      }
-      .progress-step {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: #fff;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-      .progress-step.active {
-        background-color: var(--primary-color);
-        box-shadow: 0 0 15px var(--primary-color);
-      }
-      .progress-step::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background-color: rgba(255, 255, 255, 0.3);
-        top: 50%;
-        left: 100%;
-        transform: translateY(-50%);
-      }
-      .progress-step:last-child::after {
-        display: none;
-      }
-      input,
-      select,
-      textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 2px solid var(--primary-color);
-        background: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        font-family: "Share Tech Mono", monospace;
-        transition: all 0.3s ease;
-      }
-      input:focus,
-      select:focus,
-      textarea:focus {
-        border-color: var(--secondary-color);
-        box-shadow: 0 0 15px rgba(255, 0, 222, 0.5);
-      }
-      button {
-        background: linear-gradient(
-          45deg,
-          var(--secondary-color),
-          var(--primary-color)
-        );
-        color: #000;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1.2em;
-        transition: all 0.3s ease;
-        font-family: "Press Start 2P", cursive;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-top: 20px;
-        position: relative;
-        overflow: hidden;
-      }
-      button::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.3) 0%,
-          transparent 70%
-        );
-        transform: rotate(45deg);
-        transition: all 0.5s ease;
-      }
-      button:hover {
-        background: linear-gradient(
-          45deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-        transform: scale(1.05);
-      }
-      button:hover::before {
-        top: -75%;
-        left: -75%;
-      }
-      .floating-code {
-        position: absolute;
-        font-family: "Share Tech Mono", monospace;
-        font-size: 24px;
-        opacity: 0.7;
-        transition: all 0.5s ease;
-        z-index: -1;
-        pointer-events: none;
-        animation: floatCode 20s linear infinite;
-      }
-      @keyframes floatCode {
-        0% {
-          transform: translateY(0) rotate(0deg);
-        }
-        100% {
-          transform: translateY(-1000px) rotate(360deg);
-        }
-      }
-      #webgl-stars {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-      }
 
-      #webgl-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-      .countdown-timer {
-        font-family: "Press Start 2P", cursive;
-        font-size: 2em;
-        margin-bottom: 30px;
-        color: var(--accent-color);
-        text-shadow: 0 0 10px var(--accent-color);
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-      .countdown-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .countdown-value {
-        font-size: 1.5em;
-      }
-      .countdown-label {
-        font-size: 0.5em;
-        text-transform: uppercase;
-      }
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 30px;
-      }
-      .social-links a {
-        color: var(--primary-color);
-        font-size: 24px;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-      .social-links a::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: var(--primary-color);
-        border-radius: 50%;
-        transform: scale(0);
-        transition: all 0.3s ease;
-        z-index: -1;
-      }
-      .social-links a:hover {
-        color: var(--background-color);
-        transform: scale(1.2);
-      }
-      .social-links a:hover::before {
-        transform: scale(1);
-      }
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5em;
-        }
-        .tagline {
-          font-size: 1.2em;
-        }
-        .event-grid {
-          grid-template-columns: 1fr;
-        }
-        .countdown-timer {
-          font-size: 1.5em;
-        }
-      }
-    </style>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
-          "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js",
-          "EffectComposer": "https://unpkg.com/three@0.138.0/examples/jsm/postprocessing/EffectComposer.js",
-          "RenderPass": "https://unpkg.com/three@0.138.0/examples/jsm/postprocessing/RenderPass.js",
-          "ShaderPass": "https://unpkg.com/three@0.138.0/examples/jsm/postprocessing/ShaderPass.js",
-          "UnrealBloomPass": "https://unpkg.com/three@0.138.0/examples/jsm/postprocessing/UnrealBloomPass.js",
-          "FontLoader": "https://unpkg.com/three@0.138.0/examples/jsm/loaders/FontLoader.js",
-          "TextGeometry": "https://unpkg.com/three@0.138.0/examples/jsm/geometries/TextGeometry.js"
-        }
-      }
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-  </head>
-  <body>
-    <div class="cosmic-overlay"></div>
-    <canvas id="webgl-background"></canvas>
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="glow-text">Code Con 2024</h1>
+                    <p class="subtitle">Innovate, Compete, and Connect with the Future of Tech!</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="number">500+</span>
+                            <span class="label">Participants</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">48h</span>
+                            <span class="label">Of Coding</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">20+</span>
+                            <span class="label">Events</span>
+                        </div>
+                    </div>
+                    <button class="cta-btn glow-effect">Join the Revolution</button>
+                </div>
+            </section>
 
-    <header>
-      <h1>MUIT Code-Con 2.0</h1>
-      <p class="tagline">Embark on a Cosmic Code Odyssey</p>
-      <div class="countdown-timer" id="countdown"></div>
-    </header>
+            <!-- About Section -->
+            <section id="about" class="about">
+                <h2>About Code Con</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Learn</h3>
+                        <p>Expert workshops and tech talks from industry leaders.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Build</h3>
+                        <p>Create innovative solutions in our hackathon challenges.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Connect</h3>
+                        <p>Network with tech enthusiasts and potential employers.</p>
+                    </div>
+                </div>
+            </section>
 
-    <div class="container">
-        <div class="event-grid">
-          <div class="event-card">
-            <h2>NebulaCraft</h2>
-            <p>Forge Digital Galaxies in this advanced website development workshop.</p>
-            <div class="event-icon"><i class="fas fa-code"></i></div>
-          </div>
-          <div class="event-card">
-            <h2>Quantum PixelWars</h2>
-            <p>Transcend dimensions in our mind-bending gaming and VR challenge.</p>
-            <div class="event-icon"><i class="fas fa-vr-cardboard"></i></div>
-          </div>
-          <div class="event-card">
-            <h2>CryptoNova</h2>
-            <p>Unravel the mysteries of the digital universe in our cryptic tech enigma.</p>
-            <div class="event-icon"><i class="fas fa-lock"></i></div>
-          </div>
-          <div class="event-card">
-            <h2>SingularityStorm</h2>
-            <p>Push the boundaries of innovation in our futuristic hackathon.</p>
-            <div class="event-icon"><i class="fas fa-brain"></i></div>
-          </div>
+            <!-- Competitions Section -->
+            <section id="competitions" class="competitions">
+                <h2>Competition Categories</h2>
+                <div class="competition-grid">
+                    <div class="competition-card">
+                        <h3>Tech Quiz</h3>
+                        <p>Test your knowledge across various tech domains.</p>
+                        <span class="prize">Prize: $1000</span>
+                    </div>
+                    <div class="competition-card">
+                        <h3>Coding Marathon</h3>
+                        <p>48 hours of intense coding challenges.</p>
+                        <span class="prize">Prize: $2000</span>
+                    </div>
+                    <div class="competition-card">
+                        <h3>App Challenge</h3>
+                        <p>Build innovative applications that solve real problems.</p>
+                        <span class="prize">Prize: $3000</span>
+                    </div>
+                    <div class="competition-card">
+                        <h3>Innovation Showcase</h3>
+                        <p>Present your groundbreaking tech solutions.</p>
+                        <span class="prize">Prize: $5000</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Schedule Section -->
+            <section id="schedule" class="schedule">
+                <h2>Event Schedule</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">09:00 AM</div>
+                        <h3>Opening Ceremony</h3>
+                        <p>Keynote speakers and event kickoff.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">11:00 AM</div>
+                        <h3>Tech Workshops</h3>
+                        <p>Hands-on sessions with industry experts.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">02:00 PM</div>
+                        <h3>Hackathon Begins</h3>
+                        <p>Start your 48-hour coding journey.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sponsors Section -->
+            <section id="sponsors" class="sponsors">
+                <h2>Our Sponsors</h2>
+                <div class="sponsor-grid">
+                    <div class="sponsor-logo">Sponsor 1</div>
+                    <div class="sponsor-logo">Sponsor 2</div>
+                    <div class="sponsor-logo">Sponsor 3</div>
+                </div>
+            </section>
+
+            <!-- Community Partners Section -->
+            <section id="community-partners" class="community-partners">
+                <h2>Our Community Partners</h2>
+                <p>We are proud to collaborate with communities that share our passion for technology and innovation.</p>
+                <div class="partner-grid">
+                    <div class="partner-logo">Community Partner 1</div>
+                    <div class="partner-logo">Community Partner 2</div>
+                    <div class="partner-logo">Community Partner 3</div>
+                </div>
+            </section>
+
+            <!-- Call for Partners & Volunteers Section -->
+            <section id="call-to-action" class="call-to-action">
+                <h2>Be Part of Code Con - Partner, Sponsor, Volunteer</h2>
+                <div class="cta-cards">
+                    <div class="cta-card">
+                        <h3>Community Partners</h3>
+                        <p>Join us as a community partner to help make Code Con a success.</p>
+                        <button class="cta-btn">Learn More</button>
+                    </div>
+                    <div class="cta-card">
+                        <h3>Sponsors</h3>
+                        <p>Support Code Con and gain exposure to an engaged tech audience.</p>
+                        <button class="cta-btn">Learn More</button>
+                    </div>
+                    <div class="cta-card">
+                        <h3>Volunteers</h3>
+                        <p>Be part of the action and volunteer with Code Con for a hands-on experience.</p>
+                        <button class="cta-btn">Learn More</button>
+                    </div>
+                </div>
+                <button class="get-in-touch glow-effect">Get in Touch</button>
+            </section>
+
+            <footer>
+                <div class="footer-content">
+                    <div class="social-links">
+                        <a href="#" class="glow-text"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="glow-text"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="glow-text"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p>© 2024 Code Con. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
-        
-        <div class="registration-form">
-          <h2>Join the Cosmic Code Crew</h2>
-          <div class="progress-bar">
-            <div class="progress-step active">1</div>
-            <div class="progress-step">2</div>
-            <div class="progress-step">3</div>
-          </div>
-          <form id="registrationForm">
-            <div class="form-step active">
-              <input type="text" placeholder="Full Name" required>
-              <input type="email" placeholder="Email Address" required>
-              <button type="button" onclick="nextStep(1)">Next</button>
-            </div>
-            <div class="form-step">
-              <select required>
-                <option value="" disabled selected>Select Event</option>
-                <option value="nebulacraft">NebulaCraft</option>
-                <option value="quantumpixelwars">Quantum PixelWars</option>
-                <option value="cryptonova">CryptoNova</option>
-                <option value="singularitystorm">SingularityStorm</option>
-              </select>
-              <textarea placeholder="Why do you want to join this cosmic adventure?" required></textarea>
-              <button type="button" onclick="prevStep(1)">Previous</button>
-              <button type="button" onclick="nextStep(2)">Next</button>
-            </div>
-            <div class="form-step">
-              <input type="text" placeholder="GitHub Username">
-              <input type="text" placeholder="LinkedIn Profile">
-              <button type="button" onclick="prevStep(2)">Previous</button>
-              <button type="submit">Launch into Space!</button>
-            </div>
-          </form>
-        </div>
-  
-        <div class="social-links">
-          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
+    </div>
 
-    <script type="module" src="cosmic-background.js"></script>
     <script>
-        const countdownDate = new Date("2024-12-31T23:59:59").getTime();
-        const countdownElement = document.getElementById("countdown");
-  
-        function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = countdownDate - now;
-  
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-          countdownElement.innerHTML = `
-            <div class="countdown-item"><span class="countdown-value">${days}</span><span class="countdown-label">Days</span></div>
-            <div class="countdown-item"><span class="countdown-value">${hours}</span><span class="countdown-label">Hours</span></div>
-            <div class="countdown-item"><span class="countdown-value">${minutes}</span><span class="countdown-label">Minutes</span></div>
-            <div class="countdown-item"><span class="countdown-value">${seconds}</span><span class="countdown-label">Seconds</span></div>
-          `;
-  
-          if (distance < 0) {
-            clearInterval(countdownTimer);
-            countdownElement.innerHTML = "Event Started!";
-          }
-        }
-  
-        const countdownTimer = setInterval(updateCountdown, 1000);
-  
-        function nextStep(step) {
-          document.querySelector(`.form-step:nth-child(${step})`).classList.remove('active');
-          document.querySelector(`.form-step:nth-child(${step + 1})`).classList.add('active');
-          document.querySelector(`.progress-step:nth-child(${step + 1})`).classList.add('active');
-        }
-  
-        function prevStep(step) {
-          document.querySelector(`.form-step:nth-child(${step + 1})`).classList.remove('active');
-          document.querySelector(`.form-step:nth-child(${step})`).classList.add('active');
-          document.querySelector(`.progress-step:nth-child(${step + 1})`).classList.remove('active');
-        }
-  
-        function createFloatingCode() {
-          const container = document.body;
-          const codeSnippets = ['</>','{ }', '[ ]', '# ', '$ ', '// ', '/* */', '0101', 'if()'];
-          const maxFloatingCodes = 20;
-          
-          function createCode() {
-            if (document.querySelectorAll('.floating-code').length < maxFloatingCodes) {
-              const code = document.createElement('div');
-              code.classList.add('floating-code');
-              code.style.left = `${Math.random() * 100}vw`;
-              code.style.top = '120vh';
-              code.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-              container.appendChild(code);
-  
-              gsap.to(code, {
-                y: '-120vh',
-                rotation: 360,
-                duration: 15 + Math.random() * 10,
-                ease: 'none',
-                onComplete: () => container.removeChild(code)
-              });
-            }
-          }
-  
-          setInterval(createCode, 2000);
-        }
-  
-        createFloatingCode();
-  
-        // Parallax effect on event cards
-        document.addEventListener('mousemove', (e) => {
-          const cards = document.querySelectorAll('.event-card');
-          const mouseX = e.clientX / window.innerWidth - 0.5;
-          const mouseY = e.clientY / window.innerHeight - 0.5;
-  
-          cards.forEach((card) => {
-            const cardRect = card.getBoundingClientRect();
-            const cardCenterX = cardRect.left + cardRect.width / 2;
-            const cardCenterY = cardRect.top + cardRect.height / 2;
-  
-            const angleX = (cardCenterY - e.clientY) / 30;
-            const angleY = (e.clientX - cardCenterX) / 30;
-  
-            gsap.to(card, {
-              rotationX: angleX,
-              rotationY: angleY,
-              duration: 0.5,
-              ease: 'power2.out'
-            });
-          });
-        });
-  
-        // Typewriter effect for tagline
-        const tagline = document.querySelector('.tagline');
-        const taglineText = tagline.textContent;
-        tagline.textContent = '';
-  
-        function typeWriter(text, i = 0) {
-          if (i < text.length) {
-            tagline.textContent += text.charAt(i);
-            i++;
-            setTimeout(() => typeWriter(text, i), 100);
-          }
-        }
-  
-        typeWriter(taglineText);
-      </script>
-    </body>
-  </html>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const links = document.querySelectorAll('.nav-links a');
 
+            // Add index for staggered animation
+            links.forEach((link, index) => {
+                link.style.setProperty('--i', index);
+            });
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Scroll header effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            // Close menu on link click
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script></body>
+</html>
