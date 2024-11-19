@@ -1,299 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Con 2024</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="geometric-background"></div>
     <div class="parallax-wrapper">
-        <div class="parallax-content">
-            <div class="parallax-layer"></div>
-            
-            <header>
-                <nav>
-                    <div class="logo">CODE CON</div>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="nav-links">
-                        <a href="#about">About</a>
-                        <a href="#competitions">Competitions</a>
-                        <a href="#schedule">Schedule</a>
-                        <a href="#sponsors">Sponsors</a>
-                        <a href="#community-partners">Community Partners</a>
-                        <button class="register-btn glow-effect">Register Now</button>
-                    </div>
-                </nav>
-            </header>
+      <div class="parallax-content">
+        <div class="parallax-layer"></div>
 
-
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <h1 id="hero-title" class="glow-text">Code Con 2024</h1>
-                    <p class="subtitle">Innovate, Code, Dominate: Unleash your creativity, conquer through coding, and dominate the game</p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="number">500+</span>
-                            <span class="label">Participants</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">48h</span>
-                            <span class="label">Of Coding</span>
-                        </div>
-                        <div class="stat">
-                            <span class="number">20+</span>
-                            <span class="label">Events</span>
-                        </div>
-                    </div>
-                    <button class="cta-btn glow-effect">Join the Revolution</button>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section id="about" class="about">
-                <h2>About Code Con</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <h3>Learn</h3>
-                        <p>Expert workshops and tech talks from industry leaders.</p>
-                    </div>
-                    <div class="about-card">
-                        <h3>Build</h3>
-                        <p>Create innovative solutions in our hackathon challenges.</p>
-                    </div>
-                    <div class="about-card">
-                        <h3>Connect</h3>
-                        <p>Network with tech enthusiasts and potential employers.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Organizers Section -->
-<section id="organizers" class="organizers">
-    <h2>Meet Our Organizers</h2>
-    <div class="organizer-grid">
-        <div class="organizer-card">
-            <div class="organizer-image">
-                <img src="organizer1.jpg" alt="Organizer Name">
+        <header>
+          <nav>
+            <div class="logo">CODE CON</div>
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-            <h3>Organizer Name</h3>
-            <p>Role/Position</p>
-            <div class="organizer-social">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <div class="nav-links">
+              <a href="#about">About</a>
+              <a href="#competitions">Competitions</a>
+              <a href="#schedule">Schedule</a>
+              <a href="#sponsors">Sponsors</a>
+              <a href="#community-partners">Community Partners</a>
+              <button class="register-btn glow-effect">Register Now</button>
             </div>
-        </div>
-       
-        <div class="organizer-card">
-            <div class="organizer-image">
-                <img src="organizer1.jpg" alt="Organizer Name">
+          </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1 id="hero-title" class="glow-text">Code Con 2024</h1>
+            <p id="animate-text" class="glow-text" style="
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            text-align: center;
+            margin: 3rem auto;
+            padding: 1.5rem;
+            background: linear-gradient(120deg, #00ff88 0%, #00ccff 33%, #ff00aa 66%, #00ff88 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            text-shadow: 
+                0 0 20px rgba(0, 255, 136, 0.6),
+                0 0 40px rgba(0, 204, 255, 0.4),
+                0 0 60px rgba(255, 0, 170, 0.2);
+            animation: textShine 8s linear infinite;
+            background-size: 300% 100%;
+            letter-spacing: 4px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            text-transform: uppercase;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #00ff88, #00ccff, #ff00aa) 1;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 136, 0.2),
+                inset 0 0 20px rgba(0, 204, 255, 0.1);
+            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+        "></p>
+        
+        
+            <p class="subtitle">
+              Unleash your creativity, conquer through coding, and dominate the
+              game
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="number">500+</span>
+                <span class="label">Participants</span>
+              </div>
+              <div class="stat">
+                <span class="number">48h</span>
+                <span class="label">Of Coding</span>
+              </div>
+              <div class="stat">
+                <span class="number">20+</span>
+                <span class="label">Events</span>
+              </div>
             </div>
-            <h3>Organizer Name</h3>
-            <p>Role/Position</p>
-            <div class="organizer-social">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <button class="cta-btn glow-effect">Join the Revolution</button>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+          <h2>About Code Con</h2>
+          <div class="about-grid">
+            <div class="about-card">
+              <h3>Learn</h3>
+              <p>Expert workshops and tech talks from industry leaders.</p>
             </div>
-        </div>
-
-        <div class="organizer-card">
-            <div class="organizer-image">
-                <img src="organizer1.jpg" alt="Organizer Name">
+            <div class="about-card">
+              <h3>Build</h3>
+              <p>Create innovative solutions in our hackathon challenges.</p>
             </div>
-            <h3>Organizer Name</h3>
-            <p>Role/Position</p>
-            <div class="organizer-social">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <div class="about-card">
+              <h3>Connect</h3>
+              <p>Network with tech enthusiasts and potential employers.</p>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <div class="organizer-card">
-            <div class="organizer-image">
-                <img src="organizer1.jpg" alt="Organizer Name">
+        <!-- Organizers Section -->
+        <section id="organizers" class="organizers">
+          <h2>Meet Our Organizers</h2>
+          <div class="organizer-grid">
+            <div class="organizer-card">
+              <div class="organizer-image">
+                <img src="organizer1.jpg" alt="Organizer Name" />
+              </div>
+              <h3>Organizer Name</h3>
+              <p>Role/Position</p>
+              <div class="organizer-social">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
             </div>
-            <h3>Organizer Name</h3>
-            <p>Role/Position</p>
-            <div class="organizer-social">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+
+            <div class="organizer-card">
+              <div class="organizer-image">
+                <img src="organizer1.jpg" alt="Organizer Name" />
+              </div>
+              <h3>Organizer Name</h3>
+              <p>Role/Position</p>
+              <div class="organizer-social">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
             </div>
-        </div>
-    </div>
-</section>
 
+            <div class="organizer-card">
+              <div class="organizer-image">
+                <img src="organizer1.jpg" alt="Organizer Name" />
+              </div>
+              <h3>Organizer Name</h3>
+              <p>Role/Position</p>
+              <div class="organizer-social">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
 
-            <!-- Competitions Section -->
-            <section id="competitions" class="competitions">
-                <h2>Competition Categories</h2>
-                <div class="competition-grid">
-                    <div class="competition-card">
-                        <h3>Web3</h3>
-                        <p>Build decentralized applications and smart contracts. Explore blockchain technology and create the future of the web.</p>
-                    </div>
-                    <div class="competition-card">
-                        <h3>Web2</h3>
-                        <p>Develop modern web applications using cutting-edge technologies. Create responsive and innovative solutions for today's digital needs.</p>
-                    </div>
-                    <div class="competition-card">
-                        <h3>Innovation Showcase</h3>
-                        <p>Present your groundbreaking tech solutions and applications that solve real-world problems. Transform ideas into impactful products.</p>
-                    </div>
-                    <div class="competition-card">
-                        <h3>Tech Quiz</h3>
-                        <p>Test your knowledge across various tech domains. Compete in multiple rounds of challenging technical questions and puzzles.</p>
-                    </div>
-                    <div class="competition-card">
-                        <h3>Gaming (eSports)</h3>
-                        <p>Compete in popular competitive gaming tournaments. Show off your skills and strategy in intense gaming battles.</p>
-                    </div>
-                </div>
-                
-            </section>
+            <div class="organizer-card">
+              <div class="organizer-image">
+                <img src="organizer1.jpg" alt="Organizer Name" />
+              </div>
+              <h3>Organizer Name</h3>
+              <p>Role/Position</p>
+              <div class="organizer-social">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Event Schedule Section -->
-            <section id="schedule" class="schedule">
-                <h2>Event Schedule</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time">09:00 AM</div>
-                        <h3>Opening Ceremony</h3>
-                        <p>Keynote speakers and event kickoff.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="time">11:00 AM</div>
-                        <h3>Tech Workshops</h3>
-                        <p>Hands-on sessions with industry experts.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="time">02:00 PM</div>
-                        <h3>Hackathon Begins</h3>
-                        <p>Start your 48-hour coding journey.</p>
-                    </div>
-                </div>
-            </section>
+        <!-- Competitions Section -->
+        <section id="competitions" class="competitions">
+          <h2>Competition Categories</h2>
+          <div class="competition-grid">
+            <div class="competition-card">
+              <h3>Web3</h3>
+              <p>
+                Build decentralized applications and smart contracts. Explore
+                blockchain technology and create the future of the web.
+              </p>
+            </div>
+            <div class="competition-card">
+              <h3>Web2</h3>
+              <p>
+                Develop modern web applications using cutting-edge technologies.
+                Create responsive and innovative solutions for today's digital
+                needs.
+              </p>
+            </div>
+            <div class="competition-card">
+              <h3>Innovation Showcase</h3>
+              <p>
+                Present your groundbreaking tech solutions and applications that
+                solve real-world problems. Transform ideas into impactful
+                products.
+              </p>
+            </div>
+            <div class="competition-card">
+              <h3>Tech Quiz</h3>
+              <p>
+                Test your knowledge across various tech domains. Compete in
+                multiple rounds of challenging technical questions and puzzles.
+              </p>
+            </div>
+            <div class="competition-card">
+              <h3>Gaming (eSports)</h3>
+              <p>
+                Compete in popular competitive gaming tournaments. Show off your
+                skills and strategy in intense gaming battles.
+              </p>
+            </div>
+          </div>
+        </section>
 
-            <!-- Sponsors Section -->
-            <section id="sponsors" class="sponsors">
-                <h2>Our Sponsors</h2>
-                <div class="sponsor-grid">
-                    <div class="sponsor-logo">Sponsor 1</div>
-                    <div class="sponsor-logo">Sponsor 2</div>
-                    <div class="sponsor-logo">Sponsor 3</div>
-                </div>
-            </section>
+        <!-- Event Schedule Section -->
+        <section id="schedule" class="schedule">
+          <h2>Event Schedule</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">09:00 AM</div>
+              <h3>Opening Ceremony</h3>
+              <p>Keynote speakers and event kickoff.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">11:00 AM</div>
+              <h3>Tech Workshops</h3>
+              <p>Hands-on sessions with industry experts.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">02:00 PM</div>
+              <h3>Hackathon Begins</h3>
+              <p>Start your 48-hour coding journey.</p>
+            </div>
+          </div>
+        </section>
 
-            <!-- Community Partners Section -->
-            <section id="community-partners" class="community-partners">
-                <h2>Our Community Partners</h2>
-                <p>We are proud to collaborate with communities that share our passion for technology and innovation.</p>
-                <div class="partner-grid">
-                    <div class="partner-logo">Community Partner 1</div>
-                    <div class="partner-logo">Community Partner 2</div>
-                    <div class="partner-logo">Community Partner 3</div>
-                </div>
-            </section>
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="sponsors">
+          <h2>Our Sponsors</h2>
+          <div class="sponsor-grid">
+            <div class="sponsor-logo">Sponsor 1</div>
+            <div class="sponsor-logo">Sponsor 2</div>
+            <div class="sponsor-logo">Sponsor 3</div>
+          </div>
+        </section>
 
-            <!-- Call for Partners & Volunteers Section -->
-            <section id="call-to-action" class="call-to-action">
-                <h2>Be Part of Code Con - Partner, Sponsor, Volunteer</h2>
-                <div class="cta-cards">
-                    <div class="cta-card">
-                        <h3>Community Partners</h3>
-                        <p>Join us as a community partner to help make Code Con a success.</p>
-                        <button class="cta-btn">Learn More</button>
-                    </div>
-                    <div class="cta-card">
-                        <h3>Sponsors</h3>
-                        <p>Support Code Con and gain exposure to an engaged tech audience.</p>
-                        <button class="cta-btn">Learn More</button>
-                    </div>
-                    <div class="cta-card">
-                        <h3>Volunteers</h3>
-                        <p>Be part of the action and volunteer with Code Con for a hands-on experience.</p>
-                        <button class="cta-btn">Learn More</button>
-                    </div>
-                </div>
-                <button class="get-in-touch glow-effect">Get in Touch</button>
-            </section>
+        <!-- Community Partners Section -->
+        <section id="community-partners" class="community-partners">
+          <h2>Our Community Partners</h2>
+          <p>
+            We are proud to collaborate with communities that share our passion
+            for technology and innovation.
+          </p>
+          <div class="partner-grid">
+            <div class="partner-logo">Community Partner 1</div>
+            <div class="partner-logo">Community Partner 2</div>
+            <div class="partner-logo">Community Partner 3</div>
+          </div>
+        </section>
 
-            <footer>
-                <div class="footer-content">
-                    <div class="social-links">
-                        <a href="#" class="glow-text"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="glow-text"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="glow-text"><i class="fab fa-github"></i></a>
-                    </div>
-                    <p>© 2024 Code Con. All rights reserved.</p>
-                </div>
-            </footer>
-        </div>
+        <!-- Call for Partners & Volunteers Section -->
+        <section id="call-to-action" class="call-to-action">
+          <h2>Be Part of Code Con - Partner, Sponsor, Volunteer</h2>
+          <div class="cta-cards">
+            <div class="cta-card">
+              <h3>Community Partners</h3>
+              <p>
+                Join us as a community partner to help make Code Con a success.
+              </p>
+              <button class="cta-btn">Learn More</button>
+            </div>
+            <div class="cta-card">
+              <h3>Sponsors</h3>
+              <p>
+                Support Code Con and gain exposure to an engaged tech audience.
+              </p>
+              <button class="cta-btn">Learn More</button>
+            </div>
+            <div class="cta-card">
+              <h3>Volunteers</h3>
+              <p>
+                Be part of the action and volunteer with Code Con for a hands-on
+                experience.
+              </p>
+              <button class="cta-btn">Learn More</button>
+            </div>
+          </div>
+          <button class="get-in-touch glow-effect">Get in Touch</button>
+        </section>
+
+        <footer>
+          <div class="footer-content">
+            <div class="social-links">
+              <a href="#" class="glow-text"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="glow-text"><i class="fab fa-discord"></i></a>
+              <a href="#" class="glow-text"><i class="fab fa-github"></i></a>
+            </div>
+            <p>© 2024 Code Con. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            const links = document.querySelectorAll('.nav-links a');
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const links = document.querySelectorAll(".nav-links a");
 
-            // Add index for staggered animation
-            links.forEach((link, index) => {
-                link.style.setProperty('--i', index);
-            });
-
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-
-            // Scroll header effect
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('header');
-                header.classList.toggle('scrolled', window.scrollY > 50);
-            });
-
-            // Close menu on link click
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    hamburger.classList.remove('active');
-                });
-            });
+        // Add index for staggered animation
+        links.forEach((link, index) => {
+          link.style.setProperty("--i", index);
         });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+          hamburger.classList.toggle("active");
         });
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+        // Scroll header effect
+        window.addEventListener("scroll", () => {
+          const header = document.querySelector("header");
+          header.classList.toggle("scrolled", window.scrollY > 50);
         });
-    </script></body>
+
+        // Close menu on link click
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+          });
+        });
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+
+<script>
+   const text = "Innovate, Code, Dominate";
+const element = document.getElementById('animate-text');
+let isDeleting = false;
+let currentText = '';
+let letterSpeed = 100; // Speed for typing/deleting each letter
+
+function typeEffect() {
+    if (!isDeleting && currentText.length < text.length) {
+        // Typing
+        currentText = text.substring(0, currentText.length + 1);
+        element.textContent = currentText;
+        letterSpeed = 100;
+    } else if (isDeleting && currentText.length > 0) {
+        // Deleting
+        currentText = text.substring(0, currentText.length - 1);
+        element.textContent = currentText;
+        letterSpeed = 50;
+    } else {
+        // Switch between typing and deleting
+        isDeleting = !isDeleting;
+        letterSpeed = isDeleting ? 50 : 1000; // Pause longer before typing again
+    }
+
+    setTimeout(typeEffect, letterSpeed);
+}
+
+// Start the animation
+typeEffect();
+
+    </script>
+    
+  </body>
 </html>
