@@ -38,7 +38,8 @@
             </div>
           </nav>
         </header>
-
+        
+         
         <!-- Hero Section -->
         <section class="hero">
           <div class="hero-content">
@@ -391,19 +392,19 @@
 const element = document.getElementById('animate-text');
 let isDeleting = false;
 let currentText = '';
-let letterSpeed = 100; // Speed for typing/deleting each letter
+let letterSpeed = 1000; // Speed for typing/deleting each letter
 
 function typeEffect() {
     if (!isDeleting && currentText.length < text.length) {
         // Typing
         currentText = text.substring(0, currentText.length + 1);
         element.textContent = currentText;
-        letterSpeed = 100;
+        letterSpeed = 200;
     } else if (isDeleting && currentText.length > 0) {
         // Deleting
         currentText = text.substring(0, currentText.length - 1);
         element.textContent = currentText;
-        letterSpeed = 50;
+        letterSpeed = 100;
     } else {
         // Switch between typing and deleting
         isDeleting = !isDeleting;
